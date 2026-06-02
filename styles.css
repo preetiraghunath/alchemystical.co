@@ -9,18 +9,25 @@
   --bg:        oklch(0.168 0.030 300);
   --bg-2:      oklch(0.205 0.034 301);
   --panel:     oklch(0.238 0.038 301);
-  --ink:       oklch(0.948 0.010 92);
-  --muted:     oklch(0.760 0.024 305);
-  --faint:     oklch(0.605 0.034 305);
-  --line:      oklch(0.948 0.010 92 / 0.14);
-  --line-2:    oklch(0.948 0.010 92 / 0.07);
+  --ink:       oklch(0.985 0 0);
+  --muted:     oklch(0.910 0 0);
+  --faint:     oklch(0.740 0 0);
+  --line:      oklch(0.985 0 0 / 0.14);
+  --line-2:    oklch(0.985 0 0 / 0.07);
   --accent:    oklch(0.820 0.046 305);  /* lilac-silver */
   --accent-2:  oklch(0.685 0.140 300);  /* violet */
   --glow:      oklch(0.820 0.046 305 / 0.42);
   --lumin-a:   oklch(0.685 0.140 300 / 0.40); /* violet light */
   --lumin-b:   oklch(0.820 0.046 305 / 0.24);  /* lilac-silver light */
-  --gold:      oklch(0.640 0.130 152);   /* metallic green — titles only */
-  --gold-hi:   oklch(0.760 0.110 150);
+  --gold:      oklch(0.770 0.085 303);   /* lilac mid — header sheen */
+  --gold-hi:   oklch(0.885 0.052 305);
+  --sheen:     oklch(0.975 0.022 305);   /* bright lilac highlight */
+  --au:        oklch(0.802 0.132 78);    /* true gold — header catch-light */
+  --au-hi:     oklch(0.882 0.108 82);    /* bright gold */
+  --copper:    oklch(0.650 0.140 47);    /* copper — header sheen */
+  --copper-pink: oklch(0.672 0.122 28); /* rose copper — left edge */
+  --bronze:    oklch(0.555 0.098 63);    /* bronze — header sheen */
+  --au-sheen:  oklch(0.950 0.055 85);    /* warm white-gold peak */
   --lumin-op:  1;
   --grain-op:  0.055;
   --grain-blend: screen;
@@ -41,8 +48,15 @@
   --glow:      oklch(0.560 0.058 305 / 0);
   --lumin-a:   oklch(0.560 0.130 305 / 0.16);
   --lumin-b:   oklch(0.620 0.060 305 / 0.14);
-  --gold:      oklch(0.470 0.110 152);   /* metallic green — titles only */
-  --gold-hi:   oklch(0.560 0.100 150);
+  --gold:      oklch(0.560 0.105 305);   /* lilac mid — header sheen */
+  --gold-hi:   oklch(0.650 0.078 305);
+  --sheen:     oklch(0.730 0.055 306);   /* bright lilac highlight */
+  --au:        oklch(0.652 0.126 76);    /* true gold — header catch-light */
+  --au-hi:     oklch(0.740 0.112 80);    /* bright gold */
+  --copper:    oklch(0.560 0.135 45);    /* copper — header sheen */
+  --copper-pink: oklch(0.585 0.120 26); /* rose copper — left edge */
+  --bronze:    oklch(0.480 0.090 62);    /* bronze — header sheen */
+  --au-sheen:  oklch(0.800 0.090 82);    /* warm white-gold peak */
   --lumin-op:  1;
   --grain-op:  0.035;
   --grain-blend: multiply;
@@ -63,8 +77,15 @@
   --glow:      oklch(0.825 0.052 305 / 0.45);
   --lumin-a:   oklch(0.745 0.130 308 / 0.42);
   --lumin-b:   oklch(0.825 0.052 305 / 0.26);
-  --gold:      oklch(0.655 0.135 152);   /* metallic green — titles only */
-  --gold-hi:   oklch(0.775 0.115 150);
+  --gold:      oklch(0.795 0.090 306);   /* lilac mid — header sheen */
+  --gold-hi:   oklch(0.895 0.052 307);
+  --sheen:     oklch(0.980 0.022 307);   /* bright lilac highlight */
+  --au:        oklch(0.812 0.132 78);    /* true gold — header catch-light */
+  --au-hi:     oklch(0.886 0.108 82);    /* bright gold */
+  --copper:    oklch(0.660 0.140 47);    /* copper — header sheen */
+  --copper-pink: oklch(0.682 0.122 28); /* rose copper — left edge */
+  --bronze:    oklch(0.565 0.098 63);    /* bronze — header sheen */
+  --au-sheen:  oklch(0.952 0.055 85);    /* warm white-gold peak */
   --lumin-op:  1;
   --grain-op:  0.05;
   --grain-blend: screen;
@@ -131,11 +152,12 @@ a { color: inherit; text-decoration: none; }
 
 .eyebrow {
   font-family: var(--font-display);
-  font-weight: 500;
-  font-size: 15px;
-  letter-spacing: 0.28em;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--accent-2);
+  color: var(--accent);
+  text-shadow: 0 0 16px var(--glow);
   display: inline-flex;
   align-items: center;
   gap: 0.9em;
@@ -143,8 +165,8 @@ a { color: inherit; text-decoration: none; }
 .eyebrow::before {
   content: "";
   width: 34px; height: 1px;
-  background: var(--accent-2);
-  opacity: 0.7;
+  background: var(--accent);
+  opacity: 0.9;
 }
 
 .kicker-num {
@@ -276,9 +298,9 @@ html[data-wm="caps"] .wordmark {
 }
 
 .hero-sub {
-  font-family: var(--font-head);
-  font-size: clamp(19px, 2.1vw, 26px);
-  line-height: 1.42; font-weight: 400; color: var(--ink);
+  font-family: var(--font-body);
+  font-size: clamp(17px, 1.7vw, 20px);
+  line-height: 1.6; font-weight: 400; color: var(--muted);
   max-width: 50ch; margin: 0 0 clamp(30px, 4vw, 44px);
 }
 .hero-tagline {
@@ -348,8 +370,8 @@ html[data-wm="caps"] .wordmark {
   .svc { grid-template-columns: 1fr; gap: 10px 18px; }
 }
 .svc-num { font-family: var(--font-display); font-size: 12px; letter-spacing: 0.3em; color: var(--faint); margin-bottom: 10px; }
-.svc-title { font-family: var(--font-head); font-size: clamp(24px, 2.6vw, 34px); line-height: 1.1; font-weight: 500; transition: color .35s ease; }
-.svc-desc { font-family: var(--font-head); color: var(--ink); font-size: clamp(20px, 2.1vw, 27px); line-height: 1.5; max-width: 48ch; text-wrap: pretty; }
+.svc-title { font-family: var(--font-head); font-size: clamp(25px, 2.8vw, 37px); line-height: 1.08; font-weight: 600; letter-spacing: -0.01em; transition: color .35s ease; }
+.svc-desc { font-family: var(--font-body); color: var(--muted); font-size: clamp(15px, 1.4vw, 17.5px); line-height: 1.66; max-width: 46ch; text-wrap: pretty; }
 @media (max-width: 820px) {
   .svc-desc { grid-column: 1 / -1; }
 }
@@ -361,9 +383,9 @@ html[data-wm="caps"] .wordmark {
 .why .wrap { position: relative; z-index: 2; }
 .why .eyebrow { margin-bottom: clamp(20px,2.5vw,30px); }
 .why-para {
-  font-family: var(--font-head); font-weight: 400;
-  font-size: clamp(20px, 2.1vw, 27px); line-height: 1.5; letter-spacing: 0;
-  color: var(--ink); max-width: 56ch; text-align: justify; text-wrap: pretty;
+  font-family: var(--font-body); font-weight: 400;
+  font-size: clamp(16px, 1.5vw, 19px); line-height: 1.72; letter-spacing: 0;
+  color: var(--muted); max-width: 60ch; text-align: left; text-wrap: pretty;
   margin: clamp(40px, 5vw, 64px) 0 0;
 }
 .why-para:first-of-type { margin-top: clamp(24px, 3vw, 38px); }
@@ -398,7 +420,7 @@ html[data-wm="caps"] .wordmark {
 
 .founder-name { font-family: var(--font-head); font-size: clamp(30px, 3.6vw, 50px); font-weight: 500; line-height: 1.02; margin-top: clamp(28px,3.4vw,44px); }
 .founder-role { font-family: var(--font-display); font-size: 11.5px; letter-spacing: 0.26em; text-transform: uppercase; color: var(--accent-2); margin-top: 14px; }
-.founder-bio { font-family: var(--font-head); color: var(--ink); font-size: clamp(20px, 2.1vw, 27px); line-height: 1.5; margin-top: clamp(20px,2.6vw,30px); max-width: 64ch; text-wrap: pretty; }
+.founder-bio { font-family: var(--font-body); color: var(--muted); font-size: clamp(15px, 1.45vw, 17.5px); line-height: 1.7; margin-top: clamp(20px,2.6vw,30px); max-width: 60ch; text-wrap: pretty; }
 .founder-bio + .founder-bio { margin-top: 18px; }
 .tags { display: flex; flex-wrap: wrap; gap: 9px; margin-top: clamp(22px,3vw,32px); }
 .tag {
@@ -411,7 +433,8 @@ html[data-wm="caps"] .wordmark {
    ============================================================ */
 .contact { text-align: left; background: var(--bg-2); border-block: 1px solid var(--line-2); transition: background .6s ease; }
 .contact .eyebrow { margin-bottom: clamp(20px,2.5vw,30px); }
-.contact-note { font-family: var(--font-head); color: var(--ink); max-width: 62ch; margin: 0 0 18px; font-size: clamp(19px,2vw,24px); line-height: 1.55; }
+.contact .headline { font-family: var(--font-body); color: var(--muted); }
+.contact-note { font-family: var(--font-body); color: var(--muted); max-width: 60ch; margin: 0 0 18px; font-size: clamp(16px,1.5vw,19px); line-height: 1.62; }
 .email-link {
   display: inline-block;
   font-family: var(--font-head); font-weight: 500;
@@ -429,7 +452,7 @@ html[data-wm="caps"] .wordmark {
   -webkit-text-fill-color: transparent; color: transparent;
   animation: goldGlint 1.9s linear infinite;
 }
-.contact-fine { margin-top: clamp(22px,3vw,34px); font-family: var(--font-head); font-size: clamp(19px,2vw,24px); line-height: 1.55; color: var(--ink); max-width: 62ch; }
+.contact-fine { margin-top: clamp(22px,3vw,34px); font-family: var(--font-body); font-size: clamp(16px,1.5vw,19px); line-height: 1.62; color: var(--muted); max-width: 60ch; }
 
 /* ============================================================
    FOOTER
@@ -473,22 +496,36 @@ html[data-grain="off"] .grain { display: none; }
 /* Wordmark: gold gradient gradation, on permanently */
 .wordmark .glint {
   background-image: linear-gradient(100deg,
-    var(--accent-2) 0%, var(--accent) 17%, var(--gold) 37%, var(--gold-hi) 50%, var(--gold) 63%, var(--accent) 83%, var(--accent-2) 100%);
-  background-size: 220% auto;
+    var(--accent-2) 0%, var(--accent) 17%, var(--gold) 33%, var(--gold-hi) 44%, var(--sheen) 50%, var(--gold-hi) 56%, var(--gold) 67%, var(--accent) 83%, var(--accent-2) 100%);
+  filter:
+    drop-shadow(0 0 14px var(--glow))
+    drop-shadow(0 0 36px color-mix(in oklab, var(--accent-2) 50%, transparent));
+  background-size: 240% auto;
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent; color: transparent;
-  animation: goldGlint 6s linear infinite;
+  animation: goldGlint 6.5s linear infinite;
 }
 /* Service titles: gold gradient gradation, on permanently */
 .svc-title {
   background-image: linear-gradient(100deg,
-    var(--accent-2) 0%, var(--accent) 17%, var(--gold) 37%, var(--gold-hi) 50%, var(--gold) 63%, var(--accent) 83%, var(--accent-2) 100%);
-  background-size: 220% auto;
+    var(--accent) 0%, var(--gold-hi) 22%, var(--sheen) 38%, #ffffff 50%, var(--sheen) 62%, var(--gold-hi) 78%, var(--accent) 100%);
+  background-size: 240% auto;
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent; color: transparent;
-  animation: goldGlint 6s linear infinite;
+  filter: drop-shadow(0 0 18px color-mix(in oklab, var(--sheen) 42%, transparent));
+  animation: goldGlint 6.5s linear infinite;
+}
+/* Section headers: founder name — metallic sheen */
+.founder-name {
+  background-image: linear-gradient(100deg,
+    var(--accent-2) 0%, var(--accent) 19%, var(--gold) 35%, var(--gold-hi) 45%, var(--sheen) 50%, var(--gold-hi) 55%, var(--gold) 65%, var(--accent) 81%, var(--accent-2) 100%);
+  background-size: 240% auto;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+  animation: goldGlint 8s linear infinite;
 }
 @media (prefers-reduced-motion: reduce) {
   .glint:hover, .svc:hover .svc-title { animation: none; }
   .wordmark .glint, .svc-title { animation: none; }
+  .founder-name { animation: none; }
 }
