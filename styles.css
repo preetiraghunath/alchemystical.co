@@ -253,6 +253,11 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
 .nav .nav-contact::after { display: none; }
 .nav .nav-contact:hover { border-color: var(--accent); color: var(--accent); }
 @media (max-width: 720px) { .nav .nav-link { display: none; } }
+@media (max-width: 540px) {
+  .brand { font-size: 13px; letter-spacing: 0.14em; }
+  .brand .mark { display: none; }
+  .nav .nav-contact { white-space: nowrap; font-size: 10.5px; letter-spacing: 0.14em; padding: 6px 13px; }
+}
 
 /* ============================================================
    HERO
@@ -309,6 +314,10 @@ html[data-wm="caps"] .wordmark {
   margin: clamp(14px, 2vw, 20px) 0 clamp(30px, 4vw, 46px);
 }
 .hero-tagline span { color: var(--faint); margin: 0 0.6em; font-weight: 300; }
+@media (max-width: 540px) {
+  .hero-tagline { font-size: 11px; letter-spacing: 0.12em; white-space: nowrap; }
+  .hero-tagline span { margin: 0 0.35em; }
+}
 
 /* sigil */
 .hero-sigil { position: relative; z-index: 1; display: grid; place-items: center; min-height: 360px; }
