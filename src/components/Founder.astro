@@ -1,0 +1,30 @@
+---
+import { Image } from 'astro:assets';
+import founder from '../assets/founder.jpg';
+---
+
+<section class="section founder" id="founder" data-screen-label="Founder">
+  <div class="wrap founder-grid">
+    <div class="portrait reveal" aria-label="Preeti Raghunath portrait">
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span
+        class="corner br"></span>
+      <Image class="portrait-img" src={founder} alt="Preeti Raghunath" widths={[480, 800]} sizes="(max-width: 800px) 100vw, 480px" />
+    </div>
+    <div>
+      <div class="reveal"><div class="eyebrow">The founder</div></div>
+      <h2 class="founder-name reveal" data-d="1">Preeti Raghunath, PhD</h2>
+      <p class="founder-bio reveal" data-d="2">
+        A former journalist, Preeti now teaches and researches communication technologies and policy at a leading UK
+        university. Her expertise spans the global history of media and technology, digital media, AI, data
+        governance, and emerging tech policy.
+      </p>
+      <p class="founder-bio reveal" data-d="3">
+        Preeti brings research and work experience in South and Southeast Asia, and the UK. She has consulted on
+        multi-country research and policy projects, authored books and peer-reviewed papers, edited collections and
+        long-form narrative work, covered election cycles, and reported human interest stories. She is particularly
+        interested in advancing creative deliberative policy engagement, and specialises in designing and leading
+        creative, deliberative policy workshops with stakeholders.
+      </p>
+    </div>
+  </div>
+</section>
