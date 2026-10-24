@@ -1,0 +1,52 @@
+---
+const services = [
+  {
+    title: 'Research for media production',
+    description:
+      'Deep, documented, interview-ready research for your podcasts, documentary films, and long-form writing. We go beyond surface-level sourcing to give your production credible, nuanced and contextual research as its foundation.',
+  },
+  {
+    title: 'Policy and strategy advisory',
+    description:
+      'If your organisation is navigating complex policy terrains, particularly in technology, media, and AI governance, we offer research-led advice you can act on. We have convened policy forums, led stakeholder engagement initiatives, and produced analyses for high-level decision-making.',
+  },
+  {
+    title: 'Concept development for fictional, speculative and interactive media',
+    description:
+      'Concept and world-building for your speculative fiction, creative non-fiction, game design and interactive media projects, where we match conceptual rigour with imaginative execution. We bring the same research foundation to invented worlds as to real ones — grounding future scenarios, alternative histories, and imagined systems in the actual textures of technology, policy and lived experience.',
+  },
+  {
+    title: 'Editorial and academic support',
+    description:
+      'Whether you are working on a book manuscript, an edited collection, a digital publication or a magazine feature, we offer structural editing, argument development, and scholarly grounding to help your work carry weight.',
+  },
+  {
+    title: 'Learning: trainings, workshops and programmes',
+    description:
+      'Customised trainings, workshops and programmes on AI governance, data policy, media and communication, and research methods. We design each engagement around the questions your team is actually working on, be it a short intensive for a policy or civil society organisation, a workshop for a newsroom, or a longer cohort programme for researchers and doctoral students. Every programme draws on our grounded work across media, technology, and policy in the Global South.',
+  },
+];
+---
+
+<section class="section offer" id="offer" data-screen-label="What We Offer">
+  <div class="wrap">
+    <div class="offer-head">
+      <h2 class="eyebrow reveal">Our Practice</h2>
+    </div>
+
+    <div class="offer-list">
+      {
+        services.map((service, i) => (
+          <article class="svc reveal">
+            <div class="svc-meta">
+              <div class="svc-num">{String(i + 1).padStart(2, '0')}</div>
+              <h3 class="svc-title">{service.title}</h3>
+            </div>
+            <p class="svc-desc">{service.description}</p>
+            <div class="kicker-num">↘</div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

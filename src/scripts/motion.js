@@ -63,7 +63,4 @@
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
-
-  // expose for Tweaks (reveal preference)
-  window.__alch = { setReduce: function (v) { reduce = v; } };
 })();
