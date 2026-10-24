@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Prepares an Amp orb for this Astro site: checks Node and installs npm dependencies.
+set -euo pipefail
+
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
+
+echo "==> Check Node"
+# Astro requires Node 22 or newer (see its engines entry in package-lock.json).
+if (($(node -p 'process.versions.node.split(".")[0]') < 22)); then
+  echo "Node $(node -v) is too old; Astro needs Node 22 or newer." >&2
+  exit 1
+fi
+echo "node $(node -v), npm $(npm -v)"
+
+echo "==> Install npm dependencies"
+start=$SECONDS
+npm ci --no-audit --no-fund --loglevel=error
+echo "<== npm ci ($((SECONDS - start))s)"
